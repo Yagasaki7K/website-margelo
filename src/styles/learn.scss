@@ -1,0 +1,24 @@
+.learn {
+	background-color: pink;
+	overflow: hidden;
+	display: flex;
+
+
+	&__item {
+		margin-inline: auto;
+		background-color: lightblue;
+		flex: 0 0 auo;
+		border: 1px solid #333;
+		padding: 4px;
+		max-width: 200px;
+		// min-width: min(70%, 500px);
+	}
+
+	&__item-modified {
+		background-color: orange;
+		width: 70%;
+		max-width: 500px;
+		// min-width: 70%
+	}
+}
+

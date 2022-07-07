@@ -1,0 +1,20 @@
+.slider-container {
+	background-color: white;
+	overflow-x: hidden;
+	pointer-events: none;
+}
+
+.slider-content {
+	white-space: nowrap;
+	// Getting the whole width of logo items
+	display: inline-block;
+}
+
+// Media queries
+@media screen and (min-width: 1759px) {
+	.slider-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

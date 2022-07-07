@@ -1,0 +1,32 @@
+.logo-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 53px;
+
+	&__item {
+		width: 170px;
+		height: 50px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-inline: 1.6rem;
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: contain;
+		}
+	}
+}
+
+.logo-container__item-modified {
+	width: 8rem;
+}
+
+// Media queries
+@media screen and (min-width: 1759px) {
+	.logo-container__item {
+		width: 150px;
+	}
+}

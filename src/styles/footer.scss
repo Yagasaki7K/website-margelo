@@ -1,0 +1,27 @@
+.footer {
+	background-color: black;
+	width: 100%;
+	padding: 80px 16px;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 3rem;
+
+	&__item {
+		line-height: 1.8rem;
+	}
+}
+
+.footer__item-logo {
+	text-align: center;
+}
+
+.footer__item-longtext {
+	white-space: nowrap;
+}
+
+// Media queries
+@media screen and (min-width: 424px) {
+} 

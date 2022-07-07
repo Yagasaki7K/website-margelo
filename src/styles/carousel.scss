@@ -1,0 +1,27 @@
+.embla {
+	background: black;
+	overflow: hidden;
+	color: white;
+	padding-bottom: 2rem;
+}
+
+.embla-slider {
+	padding-block: 5rem;
+	display: flex;
+	cursor: grab;
+	
+	&__item {
+		flex-shrink: 0;
+		width: min(70%, 620px);
+		flex-grow: 1;
+		opacity: 0.4;
+		transition: opacity 0.4s linear;
+	}
+}
+
+.embla-slider__item.active {
+	opacity: 1;
+}
+
+
+

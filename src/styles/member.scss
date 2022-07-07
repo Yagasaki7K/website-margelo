@@ -1,0 +1,29 @@
+.member {
+	&__image {
+		width: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+
+	&__name {
+		font-size: 2.4rem;
+		line-height: 3.2rem;
+		text-align: center;
+	}
+
+	&__link {
+		text-align: center;
+		font-size: 2rem;
+		line-height: 2.8rem;
+	}
+}
+
+// Media queries
+.member {
+	@media screen and (min-width: 1280px) {
+		&__name {
+			font-size: 3rem;
+			line-height: 3.6rem;
+		}
+	}
+}
