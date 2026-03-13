@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
 						<div className='form__textfield form__textfield-email'>
 							<input type='text' name='email' placeholder='Your E-mail' required />
 						</div>
-						<textarea className='form__textarea' typeof='text' placeholder='Additional Information' maxLength={128}></textarea>
+						<textarea className='form__textarea' name='additionalInformation' placeholder='Additional Information' maxLength={128}></textarea>
 						<button type='submit' className='form__submit-btn'>Submit</button>
 					</form>
 				</div>

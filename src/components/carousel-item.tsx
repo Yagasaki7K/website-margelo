@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { EmblaContext } from './carousel'
 import '../styles/carousel.scss'
 
@@ -16,9 +16,6 @@ const CarouselItem: React.FC<Props> = ({ index, children }) => {
 			emblaApi.scrollTo(index)
 		}
 	}
-
-	useEffect(() => {
-	}, [selectedIndex])
 
 	return (
 		<div onClick={gotoReview} className={`${isActive ? 'active' : ''} embla-slider__item`}>

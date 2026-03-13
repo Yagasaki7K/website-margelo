@@ -9,7 +9,7 @@ export const SizeContext = React.createContext<SizeValue>({
 });
 
 interface Props {
-	children: React.ReactElement;
+	children: React.ReactNode;
 }
 
 const SizeObserver: React.FC<Props> = ({ children }) => {
