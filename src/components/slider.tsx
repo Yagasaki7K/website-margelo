@@ -6,6 +6,7 @@ import "../styles/slider.scss";
 interface Props {
 	children: React.ReactNode;
 	initalOffsetX: number;
+	initialOffsetX?: number;
 	contentWidth: number;
 	marginTop?: number;
 }
@@ -13,16 +14,18 @@ interface Props {
 const SliderContainer: React.FC<Props> = ({
 	children,
 	initalOffsetX,
+	initialOffsetX,
 	contentWidth,
 	marginTop,
 }) => {
 	const { innerWidth } = useContext(SizeContext);
 	const refContainer = useRef<HTMLDivElement>(null);
 	const refContent = useRef<HTMLDivElement>(null);
-	const refScrollX = useRef<number>(initalOffsetX);
+	const startOffset = initialOffsetX ?? initalOffsetX;
+	const refScrollX = useRef<number>(startOffset);
 
 	let enabled = false;
-	if (innerWidth != 0) {
+	if (innerWidth !== 0) {
 		enabled = innerWidth < contentWidth;
 	}
 

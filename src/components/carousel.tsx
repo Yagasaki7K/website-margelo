@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel, { EmblaCarouselType } from 'embla-carousel-react'
 import Autoplay from "embla-carousel-autoplay";
 import '../styles/carousel.scss'
@@ -24,25 +24,25 @@ const Carousel: React.FC<Props> = ({ children }) => {
 	const [selectedIndex, setSelectedIndex] = useState<number>(0)
 	const sliderRef = useRef<HTMLDivElement>(null)
 
-	function handleSelect() {
+	const handleSelect = useCallback(() => {
 		if (emblaApi) {
-			setSelectedIndex(emblaApi.selectedScrollSnap)
+			setSelectedIndex(emblaApi.selectedScrollSnap())
 		}
-	}
+	}, [emblaApi])
 
-	function handleMouseDown() {
+	const handleMouseDown = useCallback(() => {
 		const { current: elEmblaSlider } = sliderRef
 		if (elEmblaSlider) {
 			elEmblaSlider.style.cursor = 'grabbing'
 		}
-	}
+	}, [])
 
-	function handleMouseUp() {
+	const handleMouseUp = useCallback(() => {
 		const { current: elEmblaSlider } = sliderRef
 		if (elEmblaSlider) {
 			elEmblaSlider.style.cursor = 'grab'
 		}
-	}
+	}, [])
 
 	useEffect(() => {
 		const { current: elSlider } = sliderRef
@@ -51,10 +51,22 @@ const Carousel: React.FC<Props> = ({ children }) => {
 			elSlider.addEventListener('mousedown', handleMouseDown)
 		}
 
-		if (emblaApi !== undefined) {
+		if (emblaApi) {
+			handleSelect()
 			emblaApi.on('select', handleSelect)
 		}
-	}, [emblaApi])
+
+		return () => {
+			if (elSlider) {
+				elSlider.removeEventListener('mouseup', handleMouseUp)
+				elSlider.removeEventListener('mousedown', handleMouseDown)
+			}
+
+			if (emblaApi) {
+				emblaApi.off('select', handleSelect)
+			}
+		}
+	}, [emblaApi, handleMouseDown, handleMouseUp, handleSelect])
 
 	return (
 		<EmblaContext.Provider value={{ embla: emblaApi, selectedIndex }}>

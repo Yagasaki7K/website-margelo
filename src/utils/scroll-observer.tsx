@@ -8,11 +8,13 @@ export const ScrollContenxt = React.createContext<ScrollValue>({
 	scrollY: 0,
 });
 
+export const ScrollContext = ScrollContenxt;
+
 interface Props {
-	children: React.ReactElement;
+	children: React.ReactNode;
 }
 
-const SizeObserver: React.FC<Props> = ({ children }) => {
+const ScrollObserver: React.FC<Props> = ({ children }) => {
 	const [scrollY, setScrollY] = useState<number>(0);
 
 	function handleScroll() {
@@ -32,4 +34,4 @@ const SizeObserver: React.FC<Props> = ({ children }) => {
 	);
 };
 
-export default SizeObserver;
+export default ScrollObserver;
